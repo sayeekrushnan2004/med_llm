@@ -25,6 +25,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo {
@@ -33,10 +34,28 @@
   gap: var(--space-sm);
   transform: translateY(0);
   transition: transform var(--transition-normal);
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(120deg, #fff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
 }
 
 .logo:hover {
   transform: translateY(-2px);
+}
+
+.logo::after {
+  content: url('https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/heart-pulse.svg');
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-left: 8px;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 6px #e76f51);
+  animation: pulseLogo 1.5s infinite;
 }
 
 .logo h1 {
@@ -82,7 +101,10 @@
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
   color: var(--text-light);
   padding: var(--space-xxl) var(--space-lg);
   text-align: center;
@@ -99,6 +121,17 @@
   bottom: 0;
   background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
   animation: pulse 4s infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.15) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .hero-content {
@@ -162,6 +195,16 @@
   position: relative;
 }
 
+.footer-content::after {
+  content: url('https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/stethoscope.svg');
+  display: block;
+  margin: 16px auto 0 auto;
+  width: 32px;
+  height: 32px;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 4px #8b1e3f);
+}
+
 .footer p {
   margin-bottom: var(--space-sm);
   opacity: 0.8;
@@ -194,6 +237,51 @@
   100% {
     opacity: 0.5;
   }
+}
+
+@keyframes pulseLogo {
+  0% { transform: scale(1); filter: drop-shadow(0 0 6px #e76f51); }
+  50% { transform: scale(1.15); filter: drop-shadow(0 0 16px #e76f51); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 6px #e76f51); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-18px) scale(1.08); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Floating Animated Icons */
+.floating-icon {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  animation: float 4s ease-in-out infinite;
+}
+
+.floating-icon.heart {
+  top: 10%;
+  left: 5%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+}
+
+.floating-icon.pulse {
+  top: 60%;
+  right: 8%;
+  width: 48px;
+  height: 48px;
+  animation-delay: 1.2s;
+}
+
+.floating-icon.stethoscope {
+  bottom: 12%;
+  left: 12%;
+  width: 54px;
+  height: 54px;
+  animation-delay: 2.2s;
 }
 
 /* Media Queries */
