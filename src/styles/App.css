@@ -187,7 +187,7 @@
 }
 
 .banner-highlight {
-  color: #2563eb;
+  color: var(--primary);
   font-weight: 900;
 }
 
@@ -205,38 +205,38 @@
 }
 
 .banner-btn-primary {
-  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  background: var(--primary);
   color: #fff;
   font-size: 1.1rem;
   font-weight: 600;
   border: none;
   border-radius: 32px;
   padding: 16px 38px;
-  box-shadow: 0 4px 16px rgba(37,99,235,0.08);
+  box-shadow: 0 4px 16px rgba(178,58,72,0.08);
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 .banner-btn-primary:hover {
-  background: linear-gradient(90deg, #1d4ed8 0%, #2563eb 100%);
-  box-shadow: 0 8px 32px rgba(37,99,235,0.13);
+  background: var(--primary-dark);
+  box-shadow: 0 8px 32px rgba(178,58,72,0.13);
   transform: translateY(-2px) scale(1.03);
 }
 
 .banner-btn-secondary {
   background: #fff;
-  color: #2563eb;
+  color: var(--primary);
   font-size: 1.1rem;
   font-weight: 600;
-  border: 2px solid #2563eb;
+  border: 2px solid var(--primary);
   border-radius: 32px;
   padding: 16px 38px;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border 0.2s;
 }
 .banner-btn-secondary:hover {
-  background: #f1f5ff;
-  color: #1d4ed8;
-  border-color: #1d4ed8;
+  background: #f8e9ec;
+  color: var(--primary-dark);
+  border-color: var(--primary-dark);
 }
 
 .banner-chat-mockup {
@@ -273,7 +273,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #2563eb;
+  background: var(--primary);
   color: #fff;
   display: flex;
   align-items: center;
@@ -303,8 +303,8 @@
 }
 
 .banner-chat-bubble.bot {
-  background: #e8f0fe;
-  color: #2563eb;
+  background: #fbeaec;
+  color: var(--primary);
   align-self: flex-start;
 }
 
