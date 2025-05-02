@@ -55,7 +55,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
 
     // Blur after second user message in preview mode
     if (preview && chatHistory.filter(m => m.user).length === 1) {
-      setTimeout(() => setBlurPreview(true), 500); // allow bot to reply, then blur
+      setTimeout(() => setBlurPreview(true), 500);
     }
 
     try {
@@ -82,7 +82,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
   };
 
   return (
-    <div className="chat-container" style={preview && blurPreview ? {filter: 'blur(4px)', pointerEvents: 'none', position: 'relative'} : {position: 'relative'}}>
+    <div className="chat-container" style={preview && blurPreview ? {filter: 'blur(4px)', position: 'relative'} : {position: 'relative'}}>
       <div className="chat-header">
         <h3>Chat with Medical AI</h3>
         <p>Ask me anything about general health concerns</p>
@@ -120,23 +120,23 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
           <Send size={20} />
         </button>
       </div>
-
       {preview && blurPreview && (
         <div style={{
-          position: 'fixed',
+          position: 'absolute',
           top: 0,
           left: 0,
-          width: '100vw',
-          height: '100vh',
+          width: '100%',
+          height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          zIndex: 9999,
+          zIndex: 10,
           color: '#B23A48',
           fontWeight: 700,
           fontSize: '1.3rem',
           background: 'rgba(255,255,255,0.7)',
           textAlign: 'center',
+          pointerEvents: 'auto',
         }}>
           Get full chat at our chat service
         </div>
