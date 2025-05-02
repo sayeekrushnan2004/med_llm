@@ -6,6 +6,18 @@ import './styles/App.css';
 
 function App() {
   const [currentPage, setCurrentPage] = React.useState<'chat' | 'scheme'>('chat');
+  const [transitioning, setTransitioning] = React.useState(false);
+  const [displayPage, setDisplayPage] = React.useState<'chat' | 'scheme'>('chat');
+
+  const handleNavClick = (page: 'chat' | 'scheme') => {
+    if (page === currentPage) return;
+    setTransitioning(true);
+    setTimeout(() => {
+      setDisplayPage(page);
+      setCurrentPage(page);
+      setTransitioning(false);
+    }, 350); // match transition duration in CSS
+  };
 
   return (
     <div className="app-container">
@@ -19,13 +31,13 @@ function App() {
           <nav className="nav">
             <button 
               className={`nav-link ${currentPage === 'chat' ? 'active' : ''}`}
-              onClick={() => setCurrentPage('chat')}
+              onClick={() => handleNavClick('chat')}
             >
               Chat
             </button>
             <button 
               className={`nav-link ${currentPage === 'scheme' ? 'active' : ''}`}
-              onClick={() => setCurrentPage('scheme')}
+              onClick={() => handleNavClick('scheme')}
             >
               Scheme
             </button>
@@ -58,9 +70,9 @@ function App() {
         </div>
       </section>
 
-      {/* Main Content */}
-      <main className="main-content">
-        {currentPage === 'chat' ? <ChatInterface /> : <SchemeInterface />}
+      {/* Main Content with transition */}
+      <main className={`main-content page-fade ${transitioning ? 'fade-out' : 'fade-in'}`}>
+        {displayPage === 'chat' ? <ChatInterface /> : <SchemeInterface />}
       </main>
 
       {/* Footer */}

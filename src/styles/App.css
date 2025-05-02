@@ -168,6 +168,20 @@
   position: relative;
 }
 
+.page-fade {
+  transition: opacity 350ms cubic-bezier(0.4,0,0.2,1);
+  opacity: 1;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Footer */
 .footer {
   background: linear-gradient(to right, var(--secondary) 0%, #2c3338 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');

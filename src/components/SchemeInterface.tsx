@@ -52,7 +52,7 @@ const SchemeInterface: React.FC = () => {
     }
 
     setLoading(true);
-    const userMessage = `Query: ${userInput}\nAge: ${age}\nState: ${state}\nGender: ${gender}`;
+    const userMessage = ` ${userInput}\nAge: ${age}\nState: ${state}\nGender: ${gender}`;
 
     setChatHistory(prev => [
       ...prev,
