@@ -67,41 +67,43 @@ const Chat: React.FC = () => {
   };
 
   return (
-    <div className="chat-app-container">
+    <div className="chat-app-fullpage">
       <div className="chat-header-main">
         <h2>MediChat AI</h2>
         <p>Ask your health questions and get instant AI-powered answers.</p>
       </div>
-      <div className="chat-messages-main">
-        {chatHistory.map((message, index) => (
-          <ChatMessage
-            key={index}
-            userMessage={message.user}
-            botMessage={message.bot}
-            isTyping={index === chatHistory.length - 1 && message.bot === '...'}
+      <div className="chat-container chat-container-fullpage">
+        <div className="chat-messages-main">
+          {chatHistory.map((message, index) => (
+            <ChatMessage
+              key={index}
+              userMessage={message.user}
+              botMessage={message.bot}
+              isTyping={index === chatHistory.length - 1 && message.bot === '...'}
+            />
+          ))}
+          <div ref={messagesEndRef} />
+        </div>
+        <div className="chat-input-main">
+          <input
+            ref={inputRef}
+            type="text"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Type your health question here..."
+            disabled={loading}
+            className="chat-input-box"
           />
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
-      <div className="chat-input-main">
-        <input
-          ref={inputRef}
-          type="text"
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Type your health question here..."
-          disabled={loading}
-          className="chat-input-box"
-        />
-        <button
-          onClick={handleSendMessage}
-          disabled={loading || !userInput.trim()}
-          className={`chat-send-btn${loading ? ' loading' : ''}`}
-          aria-label="Send message"
-        >
-          <Send size={20} />
-        </button>
+          <button
+            onClick={handleSendMessage}
+            disabled={loading || !userInput.trim()}
+            className={`chat-send-btn${loading ? ' loading' : ''}`}
+            aria-label="Send message"
+          >
+            <Send size={20} />
+          </button>
+        </div>
       </div>
     </div>
   );
