@@ -49,26 +49,46 @@ function App() {
 
       {/* Hero Section */}
       <section className="hero">
-        <img 
-          src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80" 
-          alt="Medical theme" 
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            opacity: 0.18,
-            zIndex: 0,
-            pointerEvents: 'none',
-          }}
-        />
         <div className="hero-content" style={{ position: 'relative', zIndex: 1 }}>
           <h2>Virtual Medical Assistance</h2>
           <p>Ask our AI doctor about general medical advice, symptoms, and health concerns.</p>
         </div>
       </section>
+
+      {/* Banner Section */}
+      <section className="banner">
+        <div className="banner-content">
+          <h1>
+            Your Personal <span className="banner-highlight">AI Medical</span> Assistant
+          </h1>
+          <p className="banner-desc">
+            Get instant, reliable medical advice powered by advanced AI technology. Our system provides general medical guidance to help you make informed health decisions.
+          </p>
+          <div className="banner-buttons">
+            <button className="banner-btn-primary" onClick={() => {
+              const el = document.querySelector('.main-content');
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }}>
+              Try Now <span style={{marginLeft: 8}}>&rarr;</span>
+            </button>
+            <button className="banner-btn-secondary">Learn More</button>
+          </div>
+        </div>
+        <div className="banner-chat-mockup">
+          <div className="banner-chat-card">
+            <div className="banner-chat-header">
+              <div className="banner-chat-avatar"> <span role="img" aria-label="bot">🤖</span> </div>
+              <div>
+                <div className="banner-chat-title">MediAI Assistant</div>
+                <div className="banner-chat-status">Online</div>
+              </div>
+            </div>
+            <div className="banner-chat-bubble bot">Hello! I'm your AI medical assistant. How can I help you today?</div>
+            <div className="banner-chat-bubble user">I have a headache. What should I do?</div>
+          </div>
+        </div>
+      </section>
+      {/* End Banner Section */}
 
       {/* Main Content with transition */}
       <main className={`main-content page-fade ${transitioning ? 'fade-out' : 'fade-in'}`}>
