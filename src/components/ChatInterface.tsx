@@ -9,10 +9,15 @@ interface Message {
   bot: string;
 }
 
-const ChatInterface: React.FC = () => {
+interface ChatInterfaceProps {
+  preview?: boolean;
+}
+
+const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
   const [chatHistory, setChatHistory] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [blurPreview, setBlurPreview] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -48,6 +53,11 @@ const ChatInterface: React.FC = () => {
     ]);
     setUserInput('');
 
+    // Blur after second user message in preview mode
+    if (preview && chatHistory.filter(m => m.user).length === 1) {
+      setTimeout(() => setBlurPreview(true), 500); // allow bot to reply, then blur
+    }
+
     try {
       const botReply = await fetchMedicalBotResponse(userMessage);
       setChatHistory((prev) => [
@@ -72,7 +82,7 @@ const ChatInterface: React.FC = () => {
   };
 
   return (
-    <div className="chat-container">
+    <div className="chat-container" style={preview && blurPreview ? {filter: 'blur(4px)', pointerEvents: 'none', position: 'relative'} : {position: 'relative'}}>
       <div className="chat-header">
         <h3>Chat with Medical AI</h3>
         <p>Ask me anything about general health concerns</p>
@@ -110,6 +120,27 @@ const ChatInterface: React.FC = () => {
           <Send size={20} />
         </button>
       </div>
+
+      {preview && blurPreview && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 9999,
+          color: '#B23A48',
+          fontWeight: 700,
+          fontSize: '1.3rem',
+          background: 'rgba(255,255,255,0.7)',
+          textAlign: 'center',
+        }}>
+          Get full chat at our chat service
+        </div>
+      )}
     </div>
   );
 };

@@ -185,7 +185,7 @@ function AppContent() {
                     Try our AI-powered medical chat assistant below. For a full experience, visit the Chat page.
                   </p>
                   <div style={{width: '100%', maxWidth: 800, margin: '0 auto'}}>
-                    <ChatInterface />
+                    <ChatInterface preview={true} />
                   </div>
                   <button
                     className="banner-btn-primary"
