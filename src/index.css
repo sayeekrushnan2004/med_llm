@@ -1,9 +1,9 @@
 /* Base styles */
 :root {
   /* Color Palette */
-  --primary: #8B1E3F;
-  --primary-light: #A93954;
-  --primary-dark: #651634;
+  --primary: #B23A48; /* Elegant deep red */
+  --primary-light: #D36C6C;
+  --primary-dark: #7A263A;
   --secondary: #343A40;
   --accent: #F8F9FA;
   --text-primary: #212529;

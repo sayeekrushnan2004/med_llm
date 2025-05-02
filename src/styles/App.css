@@ -80,6 +80,7 @@
   transition: all var(--transition-fast);
   position: relative;
   overflow: hidden;
+  font-size: 1.25rem; /* Match Contact's font size for all */
 }
 
 .nav-link::before {
