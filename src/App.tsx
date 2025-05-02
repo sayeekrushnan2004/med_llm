@@ -95,7 +95,26 @@ function App() {
         <div className="features-container" style={{maxWidth: 1100, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 48}}>
           <h2 style={{fontSize: '2.2rem', fontWeight: 700, color: '#B23A48', marginBottom: 12}}>Why Choose MediChat AI?</h2>
           <div className="features-list" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 40, width: '100%'}}>
-            {/* ...existing feature cards... */}
+            <div className="feature-card" style={{flex: '1 1 220px', minWidth: 220, maxWidth: 260, background: '#f7fafd', borderRadius: 16, boxShadow: '0 4px 16px rgba(178,58,72,0.06)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
+              <span style={{fontSize: 36, color: '#B23A48'}} role="img" aria-label="stethoscope">🩺</span>
+              <h3 style={{fontWeight: 600, fontSize: '1.2rem'}}>Symptom Checker</h3>
+              <p style={{color: '#495057'}}>Get instant guidance on symptoms and possible causes, anytime.</p>
+            </div>
+            <div className="feature-card" style={{flex: '1 1 220px', minWidth: 220, maxWidth: 260, background: '#f7fafd', borderRadius: 16, boxShadow: '0 4px 16px rgba(178,58,72,0.06)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
+              <span style={{fontSize: 36, color: '#B23A48'}} role="img" aria-label="bulb">💡</span>
+              <h3 style={{fontWeight: 600, fontSize: '1.2rem'}}>Health Tips</h3>
+              <p style={{color: '#495057'}}>Personalized wellness tips to help you stay healthy every day.</p>
+            </div>
+            <div className="feature-card" style={{flex: '1 1 220px', minWidth: 220, maxWidth: 260, background: '#f7fafd', borderRadius: 16, boxShadow: '0 4px 16px rgba(178,58,72,0.06)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
+              <span style={{fontSize: 36, color: '#B23A48'}} role="img" aria-label="lock">🔒</span>
+              <h3 style={{fontWeight: 600, fontSize: '1.2rem'}}>Privacy & Security</h3>
+              <p style={{color: '#495057'}}>Your health data is confidential and never shared with third parties.</p>
+            </div>
+            <div className="feature-card" style={{flex: '1 1 220px', minWidth: 220, maxWidth: 260, background: '#f7fafd', borderRadius: 16, boxShadow: '0 4px 16px rgba(178,58,72,0.06)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
+              <span style={{fontSize: 36, color: '#B23A48'}} role="img" aria-label="clock">⏰</span>
+              <h3 style={{fontWeight: 600, fontSize: '1.2rem'}}>24/7 Availability</h3>
+              <p style={{color: '#495057'}}>Access medical guidance any time, day or night, from anywhere.</p>
+            </div>
           </div>
         </div>
       </section>
