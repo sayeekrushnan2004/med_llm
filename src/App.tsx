@@ -3,12 +3,21 @@ import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation } f
 import { Stethoscope } from 'lucide-react';
 import ChatInterface from './components/ChatInterface';
 import Chat from './components/Chat';
+import SchemeInterface from './components/SchemeInterface';
 import './styles/App.css';
 
 function ChatPage() {
   return (
     <main className="main-content">
       <Chat />
+    </main>
+  );
+}
+
+function SchemePage() {
+  return (
+    <main className="main-content">
+      <SchemeInterface />
     </main>
   );
 }
@@ -200,6 +209,7 @@ function AppContent() {
           </>
         } />
         <Route path="/chat" element={<ChatPage />} />
+        <Route path="/scheme" element={<SchemePage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
