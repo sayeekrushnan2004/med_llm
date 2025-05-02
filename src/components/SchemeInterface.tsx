@@ -36,12 +36,7 @@ const SchemeInterface: React.FC = () => {
   }, [chatHistory]);
 
   useEffect(() => {
-    setChatHistory([
-      { 
-        user: '', 
-        bot: 'Welcome to the Medical Scheme Assistant! Please fill in your details and ask about available medical schemes.' 
-      }
-    ]);
+    setChatHistory([]);
   }, []);
 
   const handleSendMessage = async () => {

@@ -170,29 +170,32 @@
 
 /* Footer */
 .footer {
-  background: linear-gradient(to right, var(--secondary) 0%, #2c3338 100%);
+  background: linear-gradient(to right, var(--secondary) 0%, #2c3338 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
   color: var(--text-light);
   padding: var(--space-lg);
   text-align: center;
   font-size: 0.875rem;
   position: relative;
   overflow: hidden;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+.footer-bg-img {
+  display: none;
 }
 
 .footer-content {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
+  z-index: 1;
 }
 
 .footer-content::after {

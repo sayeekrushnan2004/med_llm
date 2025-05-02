@@ -37,7 +37,22 @@ function App() {
 
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-content">
+        <img 
+          src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80" 
+          alt="Medical theme" 
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: 0.18,
+            zIndex: 0,
+            pointerEvents: 'none',
+          }}
+        />
+        <div className="hero-content" style={{ position: 'relative', zIndex: 1 }}>
           <h2>Virtual Medical Assistance</h2>
           <p>Ask our AI doctor about general medical advice, symptoms, and health concerns.</p>
         </div>
@@ -50,6 +65,7 @@ function App() {
 
       {/* Footer */}
       <footer className="footer">
+        <img className="footer-bg-img" src="https://images.unsplash.com/photo-1512070679279-c2f999098c01?auto=format&fit=crop&w=1600&q=80" alt="footer medical banner" style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',objectFit:'cover',opacity:0.18,zIndex:0,pointerEvents:'none'}} />
         <div className="footer-content">
           <p>© 2025 MediChat AI. This is a demonstration project and not intended for actual medical diagnosis.</p>
           <p>Always consult a real healthcare professional for medical advice.</p>
