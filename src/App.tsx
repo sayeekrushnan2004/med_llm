@@ -174,12 +174,9 @@ function AppContent() {
                   </div>
                   <h2>Explore Government Schemes</h2>
                   <p>Discover medical schemes tailored for you. Click below to view available options and eligibility.</p>
-                  <button
-                    className="banner-btn-primary expanded-schemes-btn"
-                    onClick={() => handleNavClick('scheme')}
-                  >
+                  <Link to="/scheme" className="banner-btn-primary expanded-schemes-btn">
                     View Schemes &rarr;
-                  </button>
+                  </Link>
                 </div>
               </div>
             </section>
