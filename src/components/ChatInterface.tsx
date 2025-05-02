@@ -18,6 +18,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
   const [userInput, setUserInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [blurPreview, setBlurPreview] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -55,7 +56,10 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
 
     // Blur after second user message in preview mode
     if (preview && chatHistory.filter(m => m.user).length === 1) {
-      setTimeout(() => setBlurPreview(true), 500);
+      setTimeout(() => {
+        setBlurPreview(true);
+        setShowPopup(true);
+      }, 500);
     }
 
     try {
@@ -139,6 +143,37 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
           pointerEvents: 'auto',
         }}>
           Get full chat at our chat service
+        </div>
+      )}
+      {preview && showPopup && (
+        <div id="global-chat-popup" style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 99999,
+          pointerEvents: 'auto',
+        }}>
+          <div style={{
+            background: '#fff',
+            color: '#B23A48',
+            border: '2px solid #B23A48',
+            borderRadius: '12px',
+            padding: '18px 32px',
+            boxShadow: '0 4px 24px rgba(178,58,72,0.13)',
+            fontWeight: 600,
+            fontSize: '1.1rem',
+            minWidth: 260,
+            textAlign: 'center',
+            marginTop: 24,
+            animation: 'fadeInUp 0.5s',
+          }}>
+            To have an interruption-free chat, please access the <span style={{fontWeight:700, textDecoration:'underline'}}>Chat</span> page.
+            <button style={{marginLeft:16, background:'#B23A48', color:'#fff', border:'none', borderRadius:8, padding:'6px 18px', fontWeight:600, cursor:'pointer'}} onClick={()=>{window.location.href='/chat';}}>Go to Chat</button>
+          </div>
         </div>
       )}
     </div>
