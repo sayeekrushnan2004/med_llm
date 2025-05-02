@@ -2,12 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import { Stethoscope } from 'lucide-react';
 import ChatInterface from './components/ChatInterface';
+import Chat from './components/Chat';
 import './styles/App.css';
 
 function ChatPage() {
   return (
     <main className="main-content">
-      <ChatInterface />
+      <Chat />
     </main>
   );
 }
