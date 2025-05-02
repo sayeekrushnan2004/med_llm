@@ -93,7 +93,7 @@ const SchemeInterface: React.FC = () => {
       { user: '', bot: '...' }
     ]);
     try {
-      const profileMessage = `Suggest 5 medical schemes for the following profile:\nAge: ${age}\nState: ${state}\nGender: ${gender}`;
+      const profileMessage = `Suggest 5 medical schemes for the following profile. Only return the names of the schemes as a plain list, nothing else.\nAge: ${age}\nState: ${state}\nGender: ${gender}`;
       const botReply = await fetchMedicalBotResponse(profileMessage);
       setChatHistory(prev => [
         ...prev.slice(0, -1),
