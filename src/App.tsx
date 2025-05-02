@@ -79,8 +79,7 @@ function AppContent() {
                 </p>
                 <div className="banner-buttons">
                   <button className="banner-btn-primary" onClick={() => {
-                    const el = document.querySelector('.main-content');
-                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                    window.location.href = '/chat';
                   }}>
                     Try Now <span style={{marginLeft: 8}}>&rarr;</span>
                   </button>
