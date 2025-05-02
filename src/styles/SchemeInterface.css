@@ -107,6 +107,15 @@
   flex-direction: column;
   gap: var(--space-lg);
   background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+  align-items: stretch; /* Ensures messages take full width */
+}
+
+.message-group {
+  align-items: stretch;
+}
+
+.message {
+  align-items: flex-start;
 }
 
 .input-container {

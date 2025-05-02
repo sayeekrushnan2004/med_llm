@@ -1,6 +1,7 @@
 import React from 'react';
 import { User, Bot } from 'lucide-react';
 import '../styles/ChatMessage.css';
+import ReactMarkdown from 'react-markdown';
 
 interface ChatMessageProps {
   userMessage: string;
@@ -37,7 +38,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ userMessage, botMessage, isTy
                 <span></span>
               </div>
             ) : (
-              <p>{botMessage}</p>
+              <ReactMarkdown>{botMessage}</ReactMarkdown>
             )}
           </div>
         </div>

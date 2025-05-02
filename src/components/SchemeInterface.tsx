@@ -24,6 +24,7 @@ const SchemeInterface: React.FC = () => {
   const [age, setAge] = useState('');
   const [state, setState] = useState('');
   const [gender, setGender] = useState('');
+  const [profileSubmitted, setProfileSubmitted] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -44,12 +45,12 @@ const SchemeInterface: React.FC = () => {
   }, []);
 
   const handleSendMessage = async () => {
-    if (!userInput.trim() || !age || !state || !gender) {
+    if (!userInput.trim() || !age || !state || !gender || !profileSubmitted) {
       setChatHistory(prev => [
         ...prev,
         { 
           user: '', 
-          bot: 'Please fill in all required fields (Age, State, and Gender) before sending your message.' 
+          bot: 'Please fill in all required fields (Age, State, and Gender) and submit your profile before sending your message.' 
         }
       ]);
       return;
@@ -74,6 +75,40 @@ const SchemeInterface: React.FC = () => {
       setChatHistory(prev => [
         ...prev.slice(0, -1),
         { user: userMessage, bot: "Sorry, I couldn't process your request. Please ensure your local LM Studio server is running." }
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleProfileSubmit = async () => {
+    if (!age || !state || !gender) {
+      setChatHistory(prev => [
+        ...prev,
+        {
+          user: '',
+          bot: 'Please fill in all required fields (Age, State, and Gender) before submitting your profile.'
+        }
+      ]);
+      return;
+    }
+    setLoading(true);
+    setChatHistory(prev => [
+      ...prev,
+      { user: '', bot: '...' }
+    ]);
+    try {
+      const profileMessage = `Suggest 5 medical schemes for the following profile:\nAge: ${age}\nState: ${state}\nGender: ${gender}`;
+      const botReply = await fetchMedicalBotResponse(profileMessage);
+      setChatHistory(prev => [
+        ...prev.slice(0, -1),
+        { user: '', bot: botReply }
+      ]);
+      setProfileSubmitted(true);
+    } catch (error) {
+      setChatHistory(prev => [
+        ...prev.slice(0, -1),
+        { user: '', bot: "Sorry, I couldn't process your request. Please ensure your local LM Studio server is running." }
       ]);
     } finally {
       setLoading(false);
@@ -105,6 +140,7 @@ const SchemeInterface: React.FC = () => {
             placeholder="Enter your age"
             min="0"
             max="120"
+            disabled={profileSubmitted}
           />
         </div>
 
@@ -114,6 +150,7 @@ const SchemeInterface: React.FC = () => {
             id="state"
             value={state}
             onChange={(e) => setState(e.target.value)}
+            disabled={profileSubmitted}
           >
             <option value="">Select your state</option>
             {indianStates.map(state => (
@@ -128,6 +165,7 @@ const SchemeInterface: React.FC = () => {
             id="gender"
             value={gender}
             onChange={(e) => setGender(e.target.value)}
+            disabled={profileSubmitted}
           >
             <option value="">Select gender</option>
             <option value="Male">Male</option>
@@ -136,19 +174,39 @@ const SchemeInterface: React.FC = () => {
           </select>
         </div>
       </div>
-      
+      {!profileSubmitted && (
+        <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0' }}>
+          <button
+            onClick={handleProfileSubmit}
+            disabled={loading || !age || !state || !gender}
+            style={{
+              padding: '10px 24px',
+              background: 'var(--primary)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '8px',
+              fontWeight: 600,
+              fontSize: '1rem',
+              cursor: loading ? 'not-allowed' : 'pointer',
+              opacity: loading ? 0.7 : 1,
+              transition: 'all 0.2s',
+            }}
+          >
+            {loading ? 'Loading...' : 'Enter'}
+          </button>
+        </div>
+      )}
       <div className="messages-container">
         {chatHistory.map((message, index) => (
-          <ChatMessage 
-            key={index} 
-            userMessage={message.user} 
-            botMessage={message.bot} 
+          <ChatMessage
+            key={index}
+            userMessage={message.user}
+            botMessage={message.bot}
             isTyping={index === chatHistory.length - 1 && message.bot === '...'}
           />
         ))}
         <div ref={messagesEndRef} />
       </div>
-      
       <div className="input-container">
         <input
           type="text"
@@ -156,12 +214,12 @@ const SchemeInterface: React.FC = () => {
           onChange={(e) => setUserInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Ask about medical schemes..."
-          disabled={loading}
+          disabled={loading || !profileSubmitted}
           className="message-input"
         />
-        <button 
-          onClick={handleSendMessage} 
-          disabled={loading || !userInput.trim() || !age || !state || !gender} 
+        <button
+          onClick={handleSendMessage}
+          disabled={loading || !userInput.trim() || !age || !state || !gender || !profileSubmitted}
           className={`send-button ${loading ? 'loading' : ''}`}
           aria-label="Send message"
         >
