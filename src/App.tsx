@@ -92,9 +92,58 @@ function App() {
 
       {/* Features Section */}
       <section className="features-section" style={{padding: '72px 0 72px 0', background: '#fff', borderBottom: '1px solid #e3e8ee', marginBottom: '64px'}}>
-        {/* Features content goes here */}
+        <div className="features-container" style={{maxWidth: 1100, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 48}}>
+          <h2 style={{fontSize: '2.2rem', fontWeight: 700, color: '#B23A48', marginBottom: 12}}>Why Choose MediChat AI?</h2>
+          <div className="features-list" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 40, width: '100%'}}>
+            {/* ...existing feature cards... */}
+          </div>
+        </div>
       </section>
       {/* End Features Section */}
+
+      {/* Expanded Space & New Functionalities Section */}
+      <section className="expanded-space-section">
+        <div className="expanded-space-grid">
+          <div className="expanded-card">
+            <div className="expanded-icon" style={{background: 'rgba(178,58,72,0.08)'}}>
+              <span role="img" aria-label="bulb">💡</span>
+            </div>
+            <h2>How It Works</h2>
+            <ol>
+              <li>Type your health question or concern.</li>
+              <li>Our AI analyzes your input and provides instant guidance.</li>
+              <li>Get suggestions, tips, and next steps for your well-being.</li>
+            </ol>
+          </div>
+          <div className="expanded-card">
+            <div className="expanded-icon" style={{background: 'rgba(178,58,72,0.08)'}}>
+              <span role="img" aria-label="topics">📚</span>
+            </div>
+            <h2>Popular Health Topics</h2>
+            <ul>
+              <li>Fever & Cough</li>
+              <li>Headache & Migraine</li>
+              <li>Nutrition & Diet</li>
+              <li>Mental Wellness</li>
+              <li>Child Health</li>
+            </ul>
+          </div>
+          <div className="expanded-card expanded-card-schemes">
+            <div className="expanded-icon" style={{background: 'rgba(178,58,72,0.08)'}}>
+              <span role="img" aria-label="government">🏛️</span>
+            </div>
+            <h2>Explore Government Schemes</h2>
+            <p>Discover medical schemes tailored for you. Click below to view available options and eligibility.</p>
+            <button
+              className="banner-btn-primary expanded-schemes-btn"
+              onClick={() => handleNavClick('scheme')}
+            >
+              View Schemes &rarr;
+            </button>
+          </div>
+        </div>
+      </section>
+      {/* End Expanded Space & New Functionalities Section */}
 
       {/* Main Content with transition */}
       <main className={`main-content page-fade ${transitioning ? 'fade-out' : 'fade-in'}`} style={{marginTop: '64px'}}>

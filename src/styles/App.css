@@ -314,6 +314,98 @@
   align-self: flex-end;
 }
 
+/* Expanded Space Section */
+.expanded-space-section {
+  padding: 96px 0 96px 0;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e3e8ee;
+  margin-bottom: 64px;
+}
+
+.expanded-space-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.expanded-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(178,58,72,0.07), 0 1.5px 6px rgba(178,58,72,0.04);
+  padding: 40px 32px 32px 32px;
+  flex: 1 1 320px;
+  min-width: 280px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.expanded-card:hover {
+  box-shadow: 0 8px 32px rgba(178,58,72,0.13), 0 2px 8px rgba(178,58,72,0.08);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.expanded-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(178,58,72,0.08);
+}
+
+.expanded-card h2 {
+  color: #B23A48;
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.expanded-card ol,
+.expanded-card ul {
+  color: #495057;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  padding-left: 20px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.expanded-card p {
+  color: #495057;
+  font-size: 1.08rem;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.expanded-card-schemes {
+  align-items: center;
+  justify-content: center;
+}
+
+.expanded-schemes-btn {
+  margin-top: 8px;
+  font-size: 1.15rem;
+  padding: 16px 38px;
+  border-radius: 32px;
+  box-shadow: 0 4px 16px rgba(178,58,72,0.10);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
 /* Main Content Area */
 .main-content {
   flex: 1;
@@ -508,6 +600,11 @@
     margin-top: 32px;
     justify-content: flex-start;
   }
+  .expanded-space-grid {
+    flex-direction: column;
+    gap: 32px;
+    align-items: stretch;
+  }
 }
 
 @media (max-width: 600px) {
@@ -521,5 +618,17 @@
     min-width: 220px;
     max-width: 98vw;
     padding: 16px 8px 10px 8px;
+  }
+  .expanded-space-section {
+    padding: 48px 0 48px 0;
+    margin-bottom: 32px;
+  }
+  .expanded-card {
+    padding: 28px 12px 20px 12px;
+    min-width: 0;
+    max-width: 100vw;
+  }
+  .expanded-card h2 {
+    font-size: 1.1rem;
   }
 }
