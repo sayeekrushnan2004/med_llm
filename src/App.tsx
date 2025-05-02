@@ -90,8 +90,14 @@ function App() {
       </section>
       {/* End Banner Section */}
 
+      {/* Features Section */}
+      <section className="features-section" style={{padding: '72px 0 72px 0', background: '#fff', borderBottom: '1px solid #e3e8ee', marginBottom: '64px'}}>
+        {/* Features content goes here */}
+      </section>
+      {/* End Features Section */}
+
       {/* Main Content with transition */}
-      <main className={`main-content page-fade ${transitioning ? 'fade-out' : 'fade-in'}`}>
+      <main className={`main-content page-fade ${transitioning ? 'fade-out' : 'fade-in'}`} style={{marginTop: '64px'}}>
         {displayPage === 'chat' ? <ChatInterface /> : <SchemeInterface />}
       </main>
 
