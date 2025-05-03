@@ -97,53 +97,54 @@ const Chat: React.FC = () => {
 
   return (
     <div className="chat-app-fullpage">
-      <div className="chat-header-main chat-header-main-enhanced">
-        <div className="chat-header-bg-shape"></div>
-        <h2>MediChat AI</h2>
-        <p>Ask your health questions and get instant <span className="chat-header-highlight">AI-powered answers</span>.</p>
-        <div className="chat-header-badges">
-          <span className="chat-badge">24/7 Virtual Doctor</span>
-          <span className="chat-badge chat-badge-tip">Private & Secure</span>
-        </div>
-        <div className="chat-header-illustration">
-          <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/stethoscope.svg" alt="Stethoscope" />
-        </div>
-      </div>
-      <div className="chat-container chat-container-fullpage">
-        <div className="chat-messages-main" ref={chatMessagesRef}>
-          {chatHistory.map((message, index) => (
-            <ChatMessage
-              key={index}
-              userMessage={message.user}
-              botMessage={message.bot}
-            />
-          ))}
-          <div ref={messagesEndRef} tabIndex={-1} />
-          {showScrollButton && (
-            <button className="chat-scroll-btn" onClick={handleScrollToBottom} aria-label="Scroll to bottom">
-              <ArrowDown size={24} />
-            </button>
-          )}
-        </div>
-        <div className="chat-input-main">
-          <input
-            ref={inputRef}
-            type="text"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Type your health question here..."
-            disabled={loading}
-            className="chat-input-box"
-          />
-          <button
-            onClick={handleSendMessage}
-            disabled={loading || !userInput.trim()}
-            className={`chat-send-btn${loading ? ' loading' : ''}`}
-            aria-label="Send message"
-          >
-            <Send size={20} />
-          </button>
+      <div className="model-card-preview" style={{margin: '0 auto', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <div className="model-card-preview-inner">
+          <div className="model-card-preview-content">
+            <div className="model-card-header-row">
+              <img className="model-card-avatar" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/stethoscope.svg" alt="AI Doctor" />
+              <div className="model-card-header-text">
+                <h2>Medical AI Chat</h2>
+                <p>Ask your health questions and get instant, AI-powered answers.</p>
+              </div>
+            </div>
+            <div className="model-card-preview-chat">
+              <div className="chat-messages-main" ref={chatMessagesRef}>
+                {chatHistory.map((message, index) => (
+                  <ChatMessage
+                    key={index}
+                    userMessage={message.user}
+                    botMessage={message.bot}
+                  />
+                ))}
+                <div ref={messagesEndRef} tabIndex={-1} />
+                {showScrollButton && (
+                  <button className="chat-scroll-btn" onClick={handleScrollToBottom} aria-label="Scroll to bottom">
+                    <ArrowDown size={24} />
+                  </button>
+                )}
+              </div>
+            </div>
+            <div className="chat-input-main">
+              <input
+                ref={inputRef}
+                type="text"
+                value={userInput}
+                onChange={(e) => setUserInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Type your health question here..."
+                disabled={loading}
+                className="chat-input-box"
+              />
+              <button
+                onClick={handleSendMessage}
+                disabled={loading || !userInput.trim()}
+                className={`chat-send-btn${loading ? ' loading' : ''}`}
+                aria-label="Send message"
+              >
+                <Send size={20} />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
