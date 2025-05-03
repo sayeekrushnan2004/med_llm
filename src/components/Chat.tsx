@@ -94,24 +94,29 @@ const Chat: React.FC = () => {
     let y = 20;
     doc.setFontSize(18);
     doc.text('MediChat AI - Chat Session', 14, y);
-    y += 10;
+    y += 12;
     doc.setFontSize(12);
+  
     chatHistory.forEach((msg, idx) => {
       if (msg.user) {
         doc.setTextColor(178, 58, 72);
-        doc.text(`You: ${msg.user}`, 14, y);
-        y += 8;
+        const userLines = doc.splitTextToSize(`You: ${msg.user}`, 180);
+        doc.text(userLines, 14, y);
+        y += userLines.length * 7;
       }
       if (msg.bot) {
         doc.setTextColor(34, 40, 49);
-        doc.text(`AI: ${msg.bot}`, 14, y);
-        y += 10;
+        const botLines = doc.splitTextToSize(`AI: ${msg.bot}`, 180);
+        doc.text(botLines, 14, y);
+        y += botLines.length * 7;
       }
+      y += 4; // extra space between messages
       if (y > 270) {
         doc.addPage();
         y = 20;
       }
     });
+  
     doc.save('medichat-session.pdf');
   };
 
