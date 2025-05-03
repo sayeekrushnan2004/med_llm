@@ -11,7 +11,7 @@ interface Message {
 
 const Chat: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: "Hello! I'm MediChat AI, your virtual doctor assistant. How can I help you today?" }
+    { role: 'assistant', content: "Hello! I'm MediJI, your average AI Doctor with a desi background. How can I help you today?" }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -54,7 +54,7 @@ const Chat: React.FC = () => {
     const doc = new jsPDF();
     let y = 20;
     doc.setFontSize(18);
-    doc.text('MediChat AI - Chat Session', 14, y);
+    doc.text('MediJI AI - Chat Session', 14, y);
     y += 12;
     doc.setFontSize(12);
     messages.forEach((msg) => {
@@ -66,7 +66,7 @@ const Chat: React.FC = () => {
       }
       if (msg.role === 'assistant') {
         doc.setTextColor(34, 40, 49);
-        const botLines = doc.splitTextToSize(`AI: ${msg.content}`, 180);
+        const botLines = doc.splitTextToSize(`MEdiJI AI: ${msg.content}`, 180);
         doc.text(botLines, 14, y);
         y += botLines.length * 7;
       }
@@ -76,7 +76,7 @@ const Chat: React.FC = () => {
         y = 20;
       }
     });
-    doc.save('medichat-session.pdf');
+    doc.save('MediJI-session.pdf');
   };  return (
     <div className="chatgpt-chat-page">
       <div className="chatgpt-intro">
@@ -101,9 +101,9 @@ const Chat: React.FC = () => {
           alt="AI Doctor Logo"
           className="chatgpt-intro-logo"
         />
-        <h2>Medical AI Chat</h2>
+        <h2>MediJI Chat</h2>
         <p>
-          Ask your health questions and get instant, AI-powered answers. Your conversation is private and secure.
+          Ask your health questions and get instant, AI-powered answers.
         </p>
       </div>
       <div
@@ -112,7 +112,7 @@ const Chat: React.FC = () => {
         style={{ cursor: 'pointer' }}
       >
         <div className="chatgpt-chat-container-header-red">
-          <h3>Chat with Medical AI</h3>
+          <h3>Chat with MediJI </h3>
           <span className="chatgpt-chat-container-header-desc">Ask me anything about general health concerns</span>
         </div>
         <div className="chatgpt-messages">
