@@ -64,7 +64,7 @@ function AppContent() {
           <>
             {/* Hero Section */}
             <section className="hero">
-              <div className="hero-content" style={{ position: 'relative', zIndex: 1 }}>
+              <div className="hero-content">
                 <h2>Virtual Medical Assistance</h2>
                 <p>Ask our AI doctor about general medical advice, symptoms, and health concerns.</p>
               </div>
@@ -83,7 +83,7 @@ function AppContent() {
                   <button className="banner-btn-primary" onClick={() => {
                     window.location.href = '/chat';
                   }}>
-                    Try Now <span style={{marginLeft: 8}}>&rarr;</span>
+                    Try Now <span className="banner-btn-arrow">&rarr;</span>
                   </button>
                   <button className="banner-btn-secondary">Learn More</button>
                 </div>
@@ -104,20 +104,20 @@ function AppContent() {
             </section>
 
             {/* Features Section */}
-            <section className="features-section" style={{padding: '72px 0', background: '#fff', borderBottom: '1px solid #e3e8ee', marginBottom: '64px'}}>
-              <div className="features-container" style={{maxWidth: 1100, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 48}}>
-                <h2 style={{fontSize: '2.2rem', fontWeight: 700, color: '#B23A48', marginBottom: 12}}>Why Choose MediChat AI?</h2>
-                <div className="features-list" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 40, width: '100%'}}>
+            <section className="features-section">
+              <div className="features-container">
+                <h2>Why Choose MediChat AI?</h2>
+                <div className="features-list">
                   {[
                     { icon: '🩺', title: 'Symptom Checker', desc: 'Get instant guidance on symptoms and possible causes, anytime.' },
                     { icon: '💡', title: 'Health Tips', desc: 'Personalized wellness tips to help you stay healthy every day.' },
                     { icon: '🔒', title: 'Privacy & Security', desc: 'Your health data is confidential and never shared with third parties.' },
                     { icon: '⏰', title: '24/7 Availability', desc: 'Access medical guidance any time, day or night, from anywhere.' }
                   ].map((f, i) => (
-                    <div className="feature-card" key={i} style={{flex: '1 1 220px', minWidth: 220, maxWidth: 260, background: '#f7fafd', borderRadius: 16, boxShadow: '0 4px 16px rgba(178,58,72,0.06)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
-                      <span style={{fontSize: 36, color: '#B23A48'}} role="img" aria-label={f.title}>{f.icon}</span>
-                      <h3 style={{fontWeight: 600, fontSize: '1.2rem'}}>{f.title}</h3>
-                      <p style={{color: '#495057'}}>{f.desc}</p>
+                    <div className="feature-card" key={i}>
+                      <span className="feature-icon" role="img" aria-label={f.title}>{f.icon}</span>
+                      <h3>{f.title}</h3>
+                      <p>{f.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -128,7 +128,7 @@ function AppContent() {
             <section className="expanded-space-section">
               <div className="expanded-space-grid">
                 <div className="expanded-card">
-                  <div className="expanded-icon" style={{background: 'rgba(178,58,72,0.08)'}}>
+                  <div className="expanded-icon">
                     <span role="img" aria-label="bulb">💡</span>
                   </div>
                   <h2>How It Works</h2>
@@ -139,7 +139,7 @@ function AppContent() {
                   </ol>
                 </div>
                 <div className="expanded-card">
-                  <div className="expanded-icon" style={{background: 'rgba(178,58,72,0.08)'}}>
+                  <div className="expanded-icon">
                     <span role="img" aria-label="topics">📚</span>
                   </div>
                   <h2>Popular Health Topics</h2>
@@ -152,7 +152,7 @@ function AppContent() {
                   </ul>
                 </div>
                 <div className="expanded-card expanded-card-schemes">
-                  <div className="expanded-icon" style={{background: 'rgba(178,58,72,0.08)'}}>
+                  <div className="expanded-icon">
                     <span role="img" aria-label="government">🏛️</span>
                   </div>
                   <h2>Explore Government Schemes</h2>
@@ -165,19 +165,18 @@ function AppContent() {
             </section>
 
             {/* Model Card Preview at Bottom of Home */}
-            <div style={{width: '100%', display: 'flex', justifyContent: 'center', margin: '64px 0 0 0'}}>
-              <div style={{maxWidth: 900, width: '100%'}}>
-                <div style={{background: '#fff', borderRadius: 18, boxShadow: '0 4px 24px rgba(178,58,72,0.07)', padding: 32, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                  <h2 style={{color: '#B23A48', fontWeight: 700, fontSize: '1.5rem', marginBottom: 12}}>Preview: Medical AI Chat</h2>
-                  <p style={{color: '#495057', fontSize: '1.08rem', textAlign: 'center', marginBottom: 18}}>
+            <div className="model-card-preview">
+              <div className="model-card-preview-inner">
+                <div className="model-card-preview-content">
+                  <h2>Preview: Medical AI Chat</h2>
+                  <p>
                     Try our AI-powered medical chat assistant below. For a full experience, visit the Chat page.
                   </p>
-                  <div style={{width: '100%', maxWidth: 800, margin: '0 auto'}}>
+                  <div className="model-card-preview-chat">
                     <ChatInterface preview={true} />
                   </div>
                   <button
-                    className="banner-btn-primary"
-                    style={{fontSize: '1.1rem', padding: '12px 32px', borderRadius: 32, marginTop: 24}}
+                    className="banner-btn-primary model-card-preview-btn"
                     onClick={() => window.location.href = '/chat'}
                   >
                     Open Full Chat &rarr;
@@ -194,7 +193,7 @@ function AppContent() {
 
       {/* Footer */}
       <footer className="footer">
-        <img className="footer-bg-img" src="https://images.unsplash.com/photo-1512070679279-c2f999098c01?auto=format&fit=crop&w=1600&q=80" alt="footer medical banner" style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',objectFit:'cover',opacity:0.18,zIndex:0,pointerEvents:'none'}} />
+        <img className="footer-bg-img" src="https://images.unsplash.com/photo-1512070679279-c2f999098c01?auto=format&fit=crop&w=1600&q=80" alt="footer medical banner" />
         <div className="footer-content">
           <p>© 2025 MediChat AI. This is a demonstration project and not intended for actual medical diagnosis.</p>
           <p>Always consult a real healthcare professional for medical advice.</p>

@@ -80,7 +80,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
   };
 
   return (
-    <div className="chat-container" style={preview && blurPreview ? {filter: 'blur(4px)', position: 'relative'} : {position: 'relative'}}>
+    <div className="chat-container">
       <div className="chat-header">
         <h3>Chat with Medical AI</h3>
         <p>Ask me anything about general health concerns</p>
@@ -117,54 +117,15 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
         </button>
       </div>
       {preview && blurPreview && (
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 10,
-          color: '#B23A48',
-          fontWeight: 700,
-          fontSize: '1.3rem',
-          background: 'rgba(255,255,255,0.7)',
-          textAlign: 'center',
-          pointerEvents: 'auto',
-        }}>
+        <div className="chat-blur-overlay">
           Get full chat at our chat service
         </div>
       )}
       {preview && showPopup && (
-        <div id="global-chat-popup" style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 99999,
-          pointerEvents: 'auto',
-        }}>
-          <div style={{
-            background: '#fff',
-            color: '#B23A48',
-            border: '2px solid #B23A48',
-            borderRadius: '12px',
-            padding: '18px 32px',
-            boxShadow: '0 4px 24px rgba(178,58,72,0.13)',
-            fontWeight: 600,
-            fontSize: '1.1rem',
-            minWidth: 260,
-            textAlign: 'center',
-            marginTop: 24,
-            animation: 'fadeInUp 0.5s',
-          }}>
-            To have an interruption-free chat, please access the <span style={{fontWeight:700, textDecoration:'underline'}}>Chat</span> page.
-            <button style={{marginLeft:16, background:'#B23A48', color:'#fff', border:'none', borderRadius:8, padding:'6px 18px', fontWeight:600, cursor:'pointer'}} onClick={()=>{window.location.href='/chat';}}>Go to Chat</button>
+        <div id="global-chat-popup" className="chat-popup">
+          <div className="chat-popup-content">
+            To have an interruption-free chat, please access the <span className="chat-popup-highlight">Chat</span> page.
+            <button className="chat-popup-btn" onClick={()=>{window.location.href='/chat';}}>Go to Chat</button>
           </div>
         </div>
       )}

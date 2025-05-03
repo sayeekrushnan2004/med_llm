@@ -166,22 +166,11 @@ const SchemeInterface: React.FC = () => {
         </div>
       </div>
       {!profileSubmitted && (
-        <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0' }}>
+        <div className="scheme-profile-btn-row">
           <button
             onClick={handleProfileSubmit}
             disabled={loading || !age || !state || !gender}
-            style={{
-              padding: '10px 24px',
-              background: 'var(--primary)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '8px',
-              fontWeight: 600,
-              fontSize: '1rem',
-              cursor: loading ? 'not-allowed' : 'pointer',
-              opacity: loading ? 0.7 : 1,
-              transition: 'all 0.2s',
-            }}
+            className="scheme-profile-btn"
           >
             {loading ? 'Loading...' : 'Enter'}
           </button>
@@ -210,7 +199,7 @@ const SchemeInterface: React.FC = () => {
         <button
           onClick={handleSendMessage}
           disabled={loading || !userInput.trim() || !age || !state || !gender || !profileSubmitted}
-          className={`send-button ${loading ? 'loading' : ''}`}
+          className={`send-button${loading ? ' loading' : ''}`}
           aria-label="Send message"
         >
           <Send size={20} />

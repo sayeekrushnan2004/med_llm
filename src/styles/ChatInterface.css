@@ -160,6 +160,74 @@
   animation: pulse 1.5s infinite;
 }
 
+/* Overlay for blurred preview in ChatInterface preview mode */
+.chat-blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  color: #B23A48;
+  font-weight: 700;
+  font-size: 1.3rem;
+  background: rgba(255,255,255,0.7);
+  text-align: center;
+  pointer-events: auto;
+}
+
+/* Popup for full chat suggestion */
+.chat-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  pointer-events: auto;
+}
+
+.chat-popup-content {
+  background: #fff;
+  color: #B23A48;
+  border: 2px solid #B23A48;
+  border-radius: 12px;
+  padding: 18px 32px;
+  box-shadow: 0 4px 24px rgba(178,58,72,0.13);
+  font-weight: 600;
+  font-size: 1.1rem;
+  min-width: 260px;
+  text-align: center;
+  margin-top: 24px;
+  animation: fadeInUp 0.5s;
+}
+
+.chat-popup-highlight {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.chat-popup-btn {
+  margin-left: 16px;
+  background: #B23A48;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chat-popup-btn:hover {
+  background: #7A263A;
+}
+
 @keyframes shimmer {
   0% {
     opacity: 0.3;

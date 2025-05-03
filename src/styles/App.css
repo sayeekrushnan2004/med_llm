@@ -493,6 +493,73 @@
   }
 }
 
+/* Model card preview section for home page */
+.model-card-preview {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 64px 0 0 0;
+}
+
+.model-card-preview-inner {
+  max-width: 900px;
+  width: 100%;
+}
+
+.model-card-preview-content {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(178,58,72,0.07);
+  padding: 32px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.model-card-preview-content h2 {
+  color: #B23A48;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.model-card-preview-content p {
+  color: #495057;
+  font-size: 1.08rem;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.model-card-preview-chat {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.model-card-preview-btn {
+  font-size: 1.1rem;
+  padding: 12px 32px;
+  border-radius: 32px;
+  margin-top: 24px;
+}
+
+.banner-btn-arrow {
+  margin-left: 8px;
+}
+
+.feature-icon {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #fbeaec 0%, #fff 100%);
+  border-radius: 50%;
+  padding: 16px;
+  box-shadow: 0 2px 12px rgba(178,58,72,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Main Content Area */
 .main-content {
   flex: 1;
