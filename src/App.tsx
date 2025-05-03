@@ -24,12 +24,6 @@ function SchemePage() {
 
 function AppContent() {
   const location = useLocation();
-  const [currentPage, setCurrentPage] = React.useState<'chat' | 'scheme'>('chat');
-
-  const handleNavClick = (page: 'chat' | 'scheme') => {
-    if (page === currentPage) return;
-    setCurrentPage(page);
-  };
 
   return (
     <div className="app-container">
@@ -65,7 +59,6 @@ function AppContent() {
         </div>
       </header>
 
-      {/* Only show homepage sections on / */}
       <Routes>
         <Route path="/" element={
           <>
@@ -109,37 +102,27 @@ function AppContent() {
                 </div>
               </div>
             </section>
-            {/* End Banner Section */}
 
             {/* Features Section */}
-            <section className="features-section" style={{padding: '72px 0 72px 0', background: '#fff', borderBottom: '1px solid #e3e8ee', marginBottom: '64px'}}>
+            <section className="features-section" style={{padding: '72px 0', background: '#fff', borderBottom: '1px solid #e3e8ee', marginBottom: '64px'}}>
               <div className="features-container" style={{maxWidth: 1100, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 48}}>
                 <h2 style={{fontSize: '2.2rem', fontWeight: 700, color: '#B23A48', marginBottom: 12}}>Why Choose MediChat AI?</h2>
                 <div className="features-list" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 40, width: '100%'}}>
-                  <div className="feature-card" style={{flex: '1 1 220px', minWidth: 220, maxWidth: 260, background: '#f7fafd', borderRadius: 16, boxShadow: '0 4px 16px rgba(178,58,72,0.06)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
-                    <span style={{fontSize: 36, color: '#B23A48'}} role="img" aria-label="stethoscope">🩺</span>
-                    <h3 style={{fontWeight: 600, fontSize: '1.2rem'}}>Symptom Checker</h3>
-                    <p style={{color: '#495057'}}>Get instant guidance on symptoms and possible causes, anytime.</p>
-                  </div>
-                  <div className="feature-card" style={{flex: '1 1 220px', minWidth: 220, maxWidth: 260, background: '#f7fafd', borderRadius: 16, boxShadow: '0 4px 16px rgba(178,58,72,0.06)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
-                    <span style={{fontSize: 36, color: '#B23A48'}} role="img" aria-label="bulb">💡</span>
-                    <h3 style={{fontWeight: 600, fontSize: '1.2rem'}}>Health Tips</h3>
-                    <p style={{color: '#495057'}}>Personalized wellness tips to help you stay healthy every day.</p>
-                  </div>
-                  <div className="feature-card" style={{flex: '1 1 220px', minWidth: 220, maxWidth: 260, background: '#f7fafd', borderRadius: 16, boxShadow: '0 4px 16px rgba(178,58,72,0.06)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
-                    <span style={{fontSize: 36, color: '#B23A48'}} role="img" aria-label="lock">🔒</span>
-                    <h3 style={{fontWeight: 600, fontSize: '1.2rem'}}>Privacy & Security</h3>
-                    <p style={{color: '#495057'}}>Your health data is confidential and never shared with third parties.</p>
-                  </div>
-                  <div className="feature-card" style={{flex: '1 1 220px', minWidth: 220, maxWidth: 260, background: '#f7fafd', borderRadius: 16, boxShadow: '0 4px 16px rgba(178,58,72,0.06)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
-                    <span style={{fontSize: 36, color: '#B23A48'}} role="img" aria-label="clock">⏰</span>
-                    <h3 style={{fontWeight: 600, fontSize: '1.2rem'}}>24/7 Availability</h3>
-                    <p style={{color: '#495057'}}>Access medical guidance any time, day or night, from anywhere.</p>
-                  </div>
+                  {[
+                    { icon: '🩺', title: 'Symptom Checker', desc: 'Get instant guidance on symptoms and possible causes, anytime.' },
+                    { icon: '💡', title: 'Health Tips', desc: 'Personalized wellness tips to help you stay healthy every day.' },
+                    { icon: '🔒', title: 'Privacy & Security', desc: 'Your health data is confidential and never shared with third parties.' },
+                    { icon: '⏰', title: '24/7 Availability', desc: 'Access medical guidance any time, day or night, from anywhere.' }
+                  ].map((f, i) => (
+                    <div className="feature-card" key={i} style={{flex: '1 1 220px', minWidth: 220, maxWidth: 260, background: '#f7fafd', borderRadius: 16, boxShadow: '0 4px 16px rgba(178,58,72,0.06)', padding: 32, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
+                      <span style={{fontSize: 36, color: '#B23A48'}} role="img" aria-label={f.title}>{f.icon}</span>
+                      <h3 style={{fontWeight: 600, fontSize: '1.2rem'}}>{f.title}</h3>
+                      <p style={{color: '#495057'}}>{f.desc}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </section>
-            {/* End Features Section */}
 
             {/* Expanded Space & New Functionalities Section */}
             <section className="expanded-space-section">
@@ -180,7 +163,6 @@ function AppContent() {
                 </div>
               </div>
             </section>
-            {/* End Expanded Space & New Functionalities Section */}
 
             {/* Model Card Preview at Bottom of Home */}
             <div style={{width: '100%', display: 'flex', justifyContent: 'center', margin: '64px 0 0 0'}}>
