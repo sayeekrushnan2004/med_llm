@@ -35,10 +35,6 @@ const SchemeInterface: React.FC = () => {
     scrollToBottom();
   }, [chatHistory]);
 
-  useEffect(() => {
-    setChatHistory([]);
-  }, []);
-
   const handleSendMessage = async () => {
     if (!userInput.trim() || !age || !state || !gender || !profileSubmitted) {
       setChatHistory(prev => [
@@ -197,7 +193,6 @@ const SchemeInterface: React.FC = () => {
             key={index}
             userMessage={message.user}
             botMessage={message.bot}
-            isTyping={index === chatHistory.length - 1 && message.bot === '...'}
           />
         ))}
         <div ref={messagesEndRef} />

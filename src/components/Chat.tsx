@@ -79,7 +79,6 @@ const Chat: React.FC = () => {
               key={index}
               userMessage={message.user}
               botMessage={message.bot}
-              isTyping={index === chatHistory.length - 1 && message.bot === '...'}
             />
           ))}
           <div ref={messagesEndRef} />

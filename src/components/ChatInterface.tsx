@@ -20,7 +20,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
   const [blurPreview, setBlurPreview] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -31,10 +30,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
   }, [chatHistory]);
 
   useEffect(() => {
-    // Focus the input field when the component mounts
-    inputRef.current?.focus();
-    
-    // Add a welcome message
     setChatHistory([
       { 
         user: '', 
@@ -54,7 +49,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
     ]);
     setUserInput('');
 
-    // Blur after second user message in preview mode
     if (preview && chatHistory.filter(m => m.user).length === 1) {
       setTimeout(() => {
         setBlurPreview(true);
@@ -98,7 +92,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
             key={index} 
             userMessage={message.user} 
             botMessage={message.bot} 
-            isTyping={index === chatHistory.length - 1 && message.bot === '...'}
           />
         ))}
         <div ref={messagesEndRef} />
@@ -106,7 +99,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
       
       <div className="input-container">
         <input
-          ref={inputRef}
           type="text"
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}

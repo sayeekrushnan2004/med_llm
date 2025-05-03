@@ -6,10 +6,9 @@ import ReactMarkdown from 'react-markdown';
 interface ChatMessageProps {
   userMessage: string;
   botMessage: string;
-  isTyping?: boolean;
 }
 
-const ChatMessage: React.FC<ChatMessageProps> = ({ userMessage, botMessage, isTyping = false }) => {
+const ChatMessage: React.FC<ChatMessageProps> = ({ userMessage, botMessage }) => {
   return (
     <div className="message-group">
       {userMessage && (
@@ -31,15 +30,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ userMessage, botMessage, isTy
         </div>
         <div className="message-content">
           <div className="message-bubble bot-bubble">
-            {isTyping ? (
-              <div className="typing-indicator">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            ) : (
-              <ReactMarkdown>{botMessage}</ReactMarkdown>
-            )}
+            <ReactMarkdown>{botMessage}</ReactMarkdown>
           </div>
         </div>
       </div>
