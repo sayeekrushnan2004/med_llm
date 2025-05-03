@@ -82,16 +82,13 @@
   z-index: 1;
 }
 
+.chat-header-main-enhanced::before {
+  content: none !important;
+  display: none !important;
+}
+
 .chat-header-bg-shape {
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120%;
-  height: 180px;
-  background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.13) 0%, transparent 70%);
-  z-index: 0;
-  pointer-events: none;
+  display: none !important;
 }
 
 .chat-header-main-enhanced h2 {

@@ -522,6 +522,10 @@
   position: relative;
   overflow: visible;
 }
+.model-card-preview-content::before {
+  content: none !important;
+  display: none !important;
+}
 .model-card-preview-content h2 {
   color: #B23A48;
   font-weight: 800;
@@ -557,22 +561,6 @@
   background: var(--primary-dark);
   box-shadow: 0 8px 32px rgba(178,58,72,0.13);
   transform: translateY(-2px) scale(1.03);
-}
-.model-card-preview-content::before {
-  content: '';
-  position: absolute;
-  top: -32px;
-  left: 32px;
-  right: 32px;
-  height: 80px;
-  border-radius: 24px 24px 0 0;
-  background: linear-gradient(135deg, #b23a48 0%, #7a263a 100%);
-  opacity: 0.13;
-  z-index: 0;
-}
-.model-card-preview-content h2, .model-card-preview-content p, .model-card-preview-chat, .model-card-preview-btn {
-  position: relative;
-  z-index: 1;
 }
 @media (max-width: 900px) {
   .model-card-preview-content {
