@@ -17,7 +17,7 @@ const ChatPreviewBlurMessage: React.FC = () => (
   <div className="chat-blur-overlay">
     <div className="chat-blur-message">
       <h2>Continue the Conversation!</h2>
-      <p>To unlock unlimited, uninterrupted medical chat, please visit the <a href="/chat" className="chat-blur-link">full chat page</a>.</p>
+      <p>To unlock unlimited, uninterrupted MediJI, please visit the <a href="/chat" className="chat-blur-link">full chat page</a>.</p>
       <button className="chat-blur-btn" onClick={() => window.location.href = '/chat'}>
         Go to Full Chat &rarr;
       </button>
@@ -44,7 +44,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
     setChatHistory([
       { 
         user: '', 
-        bot: 'Hello! I\'m MediChat AI, your virtual doctor assistant. How can I help you today?' 
+        bot: 'Hello! I\'m MediJI, your desi doctor. How can I help you today?' 
       }
     ]);
   }, []);
@@ -93,7 +93,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ preview = false }) => {
     <div className="chat-container-wrapper" style={{position: 'relative'}}>
       <div className={`chat-container${preview && blurPreview ? ' blurred' : ''}`}>
         <div className="chat-header">
-          <h3>Chat with Medical AI</h3>
+          <h3>Chat with MediJI</h3>
           <p>Ask me anything about general health concerns</p>
         </div>
         
