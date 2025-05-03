@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
+import jsPDF from 'jspdf';
 import { fetchMedicalBotResponse } from '../utils/api';
+import ExportChatButton from './ExportChatButton';
 import '../styles/Chat.css';
 
 interface Message {
@@ -13,6 +15,7 @@ const Chat: React.FC = () => {
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [cardActive, setCardActive] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -42,9 +45,53 @@ const Chat: React.FC = () => {
     }
   };
 
+  const handleCardClick = () => {
+    setCardActive(true);
+    setTimeout(() => setCardActive(false), 300); // Animation duration
+  };
+
+  const handleExportPDF = () => {
+    const doc = new jsPDF();
+    let y = 20;
+    doc.setFontSize(18);
+    doc.text('MediChat AI - Chat Session', 14, y);
+    y += 12;
+    doc.setFontSize(12);
+    messages.forEach((msg) => {
+      if (msg.role === 'user') {
+        doc.setTextColor(178, 58, 72);
+        const userLines = doc.splitTextToSize(`You: ${msg.content}`, 180);
+        doc.text(userLines, 14, y);
+        y += userLines.length * 7;
+      }
+      if (msg.role === 'assistant') {
+        doc.setTextColor(34, 40, 49);
+        const botLines = doc.splitTextToSize(`AI: ${msg.content}`, 180);
+        doc.text(botLines, 14, y);
+        y += botLines.length * 7;
+      }
+      y += 4;
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+    });
+    doc.save('medichat-session.pdf');
+  };
+
   return (
     <div className="chatgpt-chat-page">
-      <div className="chatgpt-chat-container">
+      <div className="chatgpt-intro">
+        <h2>Medical AI Chat</h2>
+        <p>
+          Ask your health questions and get instant, AI-powered answers. Your conversation is private and secure.
+        </p>
+      </div>
+      <div
+        className={`chatgpt-chat-container${cardActive ? ' card-animate' : ''}`}
+        onClick={handleCardClick}
+        style={{ cursor: 'pointer' }}
+      >
         <div className="chatgpt-messages">
           {messages.map((msg, idx) => (
             <div key={idx} className={`chatgpt-message ${msg.role}`}>
@@ -69,6 +116,7 @@ const Chat: React.FC = () => {
           </button>
         </div>
       </div>
+      <ExportChatButton onExport={handleExportPDF} />
     </div>
   );
 };

@@ -314,6 +314,31 @@
   height: 80vh;
   min-height: 500px;
   overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.chatgpt-chat-container.card-animate {
+  animation: cardClickPop 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.chatgpt-chat-container:hover {
+  box-shadow: 0 16px 48px rgba(178,58,72,0.18);
+  transform: translateY(-4px) scale(1.03);
+}
+
+@keyframes cardClickPop {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 8px 32px rgba(178,58,72,0.10);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 16px 48px rgba(178,58,72,0.18);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 32px rgba(178,58,72,0.10);
+  }
 }
 
 .chatgpt-messages {
@@ -442,6 +467,37 @@
   opacity: 0.7;
 }
 
+.chatgpt-intro {
+  width: 100%;
+  max-width: 700px;
+  margin: 40px auto 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, #fff 60%, #f8f9fa 100%);
+  border-radius: 28px;
+  box-shadow: 0 4px 24px rgba(178,58,72,0.07);
+  padding: 40px 32px 32px 32px;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+
+.chatgpt-intro h2 {
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 2.3rem;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #fbeaec;
+}
+
+.chatgpt-intro p {
+  color: var(--text-secondary);
+  font-size: 1.18rem;
+  margin-bottom: 0;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
 @media (max-width: 900px) {
   .chat-app-container {
     max-width: 98vw;
@@ -483,6 +539,17 @@
   }
   .chatgpt-input-row {
     padding: 12px 4vw;
+  }
+  .chatgpt-intro {
+    max-width: 98vw;
+    padding: 24px 8px 18px 8px;
+    border-radius: 18px;
+  }
+  .chatgpt-intro h2 {
+    font-size: 1.5rem;
+  }
+  .chatgpt-intro p {
+    font-size: 1rem;
   }
 }
 
