@@ -326,6 +326,30 @@
   transform: translateY(-4px) scale(1.03);
 }
 
+.chatgpt-chat-container-header-red {
+  background: linear-gradient(135deg, #b23a48 0%, #7a263a 100%);
+  color: #fff;
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 2px 8px rgba(178,58,72,0.10);
+  padding: 32px 0 18px 0;
+  text-align: center;
+  margin-bottom: 0;
+  z-index: 1;
+}
+
+.chatgpt-chat-container-header-red h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.chatgpt-chat-container-header-desc {
+  font-size: 1.08rem;
+  font-weight: 500;
+  opacity: 0.92;
+}
+
 @keyframes cardClickPop {
   0% {
     transform: scale(1);

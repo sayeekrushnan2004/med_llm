@@ -111,6 +111,10 @@ const Chat: React.FC = () => {
         onClick={handleCardClick}
         style={{ cursor: 'pointer' }}
       >
+        <div className="chatgpt-chat-container-header-red">
+          <h3>Chat with Medical AI</h3>
+          <span className="chatgpt-chat-container-header-desc">Ask me anything about general health concerns</span>
+        </div>
         <div className="chatgpt-messages">
           {messages.map((msg, idx) => (
             <div key={idx} className={`chatgpt-message ${msg.role}`}>
