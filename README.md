@@ -1,6 +1,6 @@
 <!-- LOGO & TITLE -->
 <p align="center">
-  <img src="images/ui2.png" alt="MediChat AI Logo" width="120" />
+  <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/stethoscope.svg" alt="MediChat AI Logo" width="90" />
 </p>
 
 <h1 align="center">MediChat AI</h1>
