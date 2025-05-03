@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import { Stethoscope } from 'lucide-react';
 import ChatInterface from './components/ChatInterface';
@@ -168,10 +167,13 @@ function AppContent() {
             <div className="model-card-preview">
               <div className="model-card-preview-inner">
                 <div className="model-card-preview-content">
-                  <h2>Preview: Medical AI Chat</h2>
-                  <p>
-                    Try our AI-powered medical chat assistant below. For a full experience, visit the Chat page.
-                  </p>
+                  <div className="model-card-header-row">
+                    <img className="model-card-avatar" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/stethoscope.svg" alt="AI Doctor" />
+                    <div className="model-card-header-text">
+                      <h2>Preview: Medical AI Chat</h2>
+                      <p>Try our AI-powered medical chat assistant below. For a full experience, visit the Chat page.</p>
+                    </div>
+                  </div>
                   <div className="model-card-preview-chat">
                     <ChatInterface preview={true} />
                   </div>

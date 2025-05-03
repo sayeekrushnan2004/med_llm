@@ -70,6 +70,106 @@
   font-weight: 500;
 }
 
+.chat-header-main-enhanced {
+  position: relative;
+  background: linear-gradient(135deg, #b23a48 0%, #7a263a 100%);
+  color: #fff;
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 4px 32px rgba(178,58,72,0.10);
+  padding: 48px 0 32px 0;
+  overflow: visible;
+  margin-bottom: 0;
+  z-index: 1;
+}
+
+.chat-header-bg-shape {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 180px;
+  background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.13) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.chat-header-main-enhanced h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.chat-header-main-enhanced p {
+  font-size: 1.18rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.chat-header-highlight {
+  color: #ffe3e3;
+  background: linear-gradient(90deg, #fff 0%, #ffe3e3 100%);
+  padding: 2px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.chat-header-badges {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.chat-badge {
+  background: #fff;
+  color: #b23a48;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 16px;
+  padding: 6px 18px;
+  box-shadow: 0 2px 8px rgba(178,58,72,0.10);
+  letter-spacing: 0.01em;
+  border: 1.5px solid #ffe3e3;
+  transition: background 0.2s, color 0.2s;
+}
+
+.chat-badge-tip {
+  background: #ffe3e3;
+  color: #7a263a;
+  border: 1.5px solid #fff;
+}
+
+.chat-header-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+  z-index: 1;
+}
+
+.chat-header-illustration img {
+  width: 54px;
+  height: 54px;
+  filter: drop-shadow(0 2px 12px #fff6f6);
+  opacity: 0.92;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
+  100% { transform: translateY(0) scale(1); }
+}
+
 .chat-messages-main {
   flex: 1;
   width: 100%;

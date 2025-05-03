@@ -68,9 +68,17 @@ const Chat: React.FC = () => {
 
   return (
     <div className="chat-app-fullpage">
-      <div className="chat-header-main">
+      <div className="chat-header-main chat-header-main-enhanced">
+        <div className="chat-header-bg-shape"></div>
         <h2>MediChat AI</h2>
-        <p>Ask your health questions and get instant AI-powered answers.</p>
+        <p>Ask your health questions and get instant <span className="chat-header-highlight">AI-powered answers</span>.</p>
+        <div className="chat-header-badges">
+          <span className="chat-badge">24/7 Virtual Doctor</span>
+          <span className="chat-badge chat-badge-tip">Private & Secure</span>
+        </div>
+        <div className="chat-header-illustration">
+          <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/stethoscope.svg" alt="Stethoscope" />
+        </div>
       </div>
       <div className="chat-container chat-container-fullpage">
         <div className="chat-messages-main">
