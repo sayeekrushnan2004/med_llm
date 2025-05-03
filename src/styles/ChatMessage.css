@@ -102,6 +102,18 @@
   line-height: 1.6;
 }
 
+.chat-link {
+  color: #B23A48;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.chat-link:hover, .chat-link:focus {
+  color: #7A263A;
+  text-decoration: underline;
+}
+
 .typing-indicator {
   display: flex;
   align-items: center;

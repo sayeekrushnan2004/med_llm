@@ -179,6 +179,61 @@
   pointer-events: auto;
 }
 
+.blurred {
+  filter: blur(4px);
+  position: relative;
+}
+
+.chat-blur-message {
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(178,58,72,0.10);
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat-blur-message h2 {
+  color: #B23A48;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.chat-blur-message p {
+  color: #495057;
+  font-size: 1.08rem;
+  margin-bottom: 18px;
+}
+
+.chat-blur-link {
+  color: #B23A48;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.chat-blur-btn {
+  background: #B23A48;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.chat-blur-btn:hover {
+  background: #7A263A;
+}
+
 /* Popup for full chat suggestion */
 .chat-popup {
   position: fixed;
