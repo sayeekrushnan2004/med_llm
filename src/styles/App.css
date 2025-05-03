@@ -102,6 +102,29 @@
   transform: translateX(0);
 }
 
+/* Ripple effect for nav-link buttons */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: nav-ripple-effect 0.5s linear;
+  background: rgba(255,255,255,0.5);
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes nav-ripple-effect {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');

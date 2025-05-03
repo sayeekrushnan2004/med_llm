@@ -24,6 +24,23 @@ function SchemePage() {
 function AppContent() {
   const location = useLocation();
 
+  // Ripple effect for nav buttons
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const button = e.currentTarget;
+    const circle = document.createElement('span');
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`;
+    circle.style.top = `${e.clientY - button.getBoundingClientRect().top - radius}px`;
+    circle.classList.add('nav-ripple');
+    const ripple = button.getElementsByClassName('nav-ripple')[0];
+    if (ripple) {
+      ripple.remove();
+    }
+    button.appendChild(circle);
+  };
+
   return (
     <div className="app-container">
       {/* Header */}
@@ -37,18 +54,21 @@ function AppContent() {
             <Link 
               to="/"
               className={`nav-link${location.pathname === '/' ? ' active' : ''}`}
+              onClick={handleNavClick}
             >
               Home
             </Link>
             <Link 
               to="/chat"
               className={`nav-link${location.pathname === '/chat' ? ' active' : ''}`}
+              onClick={handleNavClick}
             >
               Chat
             </Link>
             <Link 
               to="/scheme"
               className={`nav-link${location.pathname === '/scheme' ? ' active' : ''}`}
+              onClick={handleNavClick}
             >
               Scheme
             </Link>

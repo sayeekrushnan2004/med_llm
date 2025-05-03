@@ -77,9 +77,7 @@ const Chat: React.FC = () => {
       }
     });
     doc.save('medichat-session.pdf');
-  };
-
-  return (
+  };  return (
     <div className="chatgpt-chat-page">
       <div className="chatgpt-intro">
         {/* Floating animated icons for extra visual appeal */}
