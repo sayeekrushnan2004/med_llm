@@ -48,7 +48,7 @@ function AppContent() {
         <div className="header-content">
           <div className="logo">
             <Stethoscope size={28} />
-            <h1>MediChat AI</h1>
+            <h1>MediJI </h1>
           </div>
           <nav className="nav">
             <Link 
@@ -82,8 +82,8 @@ function AppContent() {
             {/* Hero Section */}
             <section className="hero">
               <div className="hero-content">
-                <h2>Virtual Medical Assistance</h2>
-                <p>Ask our AI doctor about general medical advice, symptoms, and health concerns.</p>
+                <h2>MediJI</h2>
+                <p>Ask MediJI about general medical advice, symptoms, and health concerns.</p>
               </div>
             </section>
 
@@ -94,7 +94,7 @@ function AppContent() {
                   Your Personal <span className="banner-highlight">AI Medical</span> Assistant
                 </h1>
                 <p className="banner-desc">
-                  Get instant, reliable medical advice powered by advanced AI technology. Our system provides general medical guidance to help you make informed health decisions.
+                  Get instant, reliable medical advice powered by AI. Our system provides general medical guidance to help you make informed health decisions.
                 </p>
                 <div className="banner-buttons">
                   <button className="banner-btn-primary" onClick={() => {
@@ -110,11 +110,11 @@ function AppContent() {
                   <div className="banner-chat-header">
                     <div className="banner-chat-avatar"> <span role="img" aria-label="bot">🤖</span> </div>
                     <div>
-                      <div className="banner-chat-title">MediAI Assistant</div>
+                      <div className="banner-chat-title">MediJI</div>
                       <div className="banner-chat-status">Online</div>
                     </div>
                   </div>
-                  <div className="banner-chat-bubble bot">Hello! I'm your AI medical assistant. How can I help you today?</div>
+                  <div className="banner-chat-bubble bot">Hello! I'm MediJI, Your AI Doctor. How can I help you today?</div>
                   <div className="banner-chat-bubble user">I have a headache. What should I do?</div>
                 </div>
               </div>
@@ -123,7 +123,7 @@ function AppContent() {
             {/* Features Section */}
             <section className="features-section">
               <div className="features-container">
-                <h2>Why Choose MediChat AI?</h2>
+                <h2>Why Choose MediJI ?</h2>
                 <div className="features-list">
                   {[
                     { icon: '🩺', title: 'Symptom Checker', desc: 'Get instant guidance on symptoms and possible causes, anytime.' },
@@ -151,7 +151,7 @@ function AppContent() {
                   <h2>How It Works</h2>
                   <ol>
                     <li>Type your health question or concern.</li>
-                    <li>Our AI analyzes your input and provides instant guidance.</li>
+                    <li>DoctorJI analyzes your input and provides instant guidance.</li>
                     <li>Get suggestions, tips, and next steps for your well-being.</li>
                   </ol>
                 </div>
@@ -188,8 +188,8 @@ function AppContent() {
                   <div className="model-card-header-row">
                     <img className="model-card-avatar" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/stethoscope.svg" alt="AI Doctor" />
                     <div className="model-card-header-text">
-                      <h2>Preview: Medical AI Chat</h2>
-                      <p>Try our AI-powered medical chat assistant below. For a full experience, visit the Chat page.</p>
+                      <h2>Preview: MediJI</h2>
+                      <p>Try our AI-powered MediJI below. For a full experience, visit the Chat page.</p>
                     </div>
                   </div>
                   <div className="model-card-preview-chat">
@@ -215,7 +215,7 @@ function AppContent() {
       <footer className="footer">
         <img className="footer-bg-img" src="https://images.unsplash.com/photo-1512070679279-c2f999098c01?auto=format&fit=crop&w=1600&q=80" alt="footer medical banner" />
         <div className="footer-content">
-          <p>© 2025 MediChat AI. This is a demonstration project and not intended for actual medical diagnosis.</p>
+          <p>© 2025 MediJI. This is a demonstration project and not intended for actual medical diagnosis.</p>
           <p>Always consult a real healthcare professional for medical advice.</p>
         </div>
       </footer>
