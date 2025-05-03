@@ -82,6 +82,11 @@ const Chat: React.FC = () => {
   return (
     <div className="chatgpt-chat-page">
       <div className="chatgpt-intro">
+        <img
+          src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/stethoscope.svg"
+          alt="AI Doctor Logo"
+          className="chatgpt-intro-logo"
+        />
         <h2>Medical AI Chat</h2>
         <p>
           Ask your health questions and get instant, AI-powered answers. Your conversation is private and secure.
