@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send } from 'lucide-react';
+import { Send, ArrowDown } from 'lucide-react';
 import ChatMessage from './ChatMessage';
 import { fetchMedicalBotResponse } from '../utils/api';
 import '../styles/Chat.css';
@@ -13,8 +13,10 @@ const Chat: React.FC = () => {
   const [chatHistory, setChatHistory] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const chatMessagesRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -33,6 +35,33 @@ const Chat: React.FC = () => {
       }
     ]);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const container = chatMessagesRef.current;
+      if (!container) return;
+      // Show button if not at the bottom
+      setShowScrollButton(
+        container.scrollHeight - container.scrollTop - container.clientHeight > 40
+      );
+    };
+    const container = chatMessagesRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScroll);
+      // Initial check
+      handleScroll();
+    }
+    return () => {
+      if (container) container.removeEventListener('scroll', handleScroll);
+    };
+  }, [chatHistory]);
+
+  const handleScrollToBottom = () => {
+    const container = chatMessagesRef.current;
+    if (container) {
+      container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+    }
+  };
 
   const handleSendMessage = async () => {
     if (!userInput.trim()) return;
@@ -81,7 +110,7 @@ const Chat: React.FC = () => {
         </div>
       </div>
       <div className="chat-container chat-container-fullpage">
-        <div className="chat-messages-main">
+        <div className="chat-messages-main" ref={chatMessagesRef}>
           {chatHistory.map((message, index) => (
             <ChatMessage
               key={index}
@@ -89,7 +118,12 @@ const Chat: React.FC = () => {
               botMessage={message.bot}
             />
           ))}
-          <div ref={messagesEndRef} />
+          <div ref={messagesEndRef} tabIndex={-1} />
+          {showScrollButton && (
+            <button className="chat-scroll-btn" onClick={handleScrollToBottom} aria-label="Scroll to bottom">
+              <ArrowDown size={24} />
+            </button>
+          )}
         </div>
         <div className="chat-input-main">
           <input
