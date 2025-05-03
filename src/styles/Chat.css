@@ -479,6 +479,7 @@
   position: relative;
   z-index: 2;
   animation: fadeInUp 0.7s cubic-bezier(0.4,0,0.2,1);
+  overflow: visible;
 }
 
 .chatgpt-intro h2 {
@@ -496,6 +497,44 @@
   margin-bottom: 0;
   font-weight: 500;
   line-height: 1.6;
+}
+
+.chatgpt-intro-floating {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.13;
+  pointer-events: none;
+  animation: float 4s ease-in-out infinite;
+}
+
+.chatgpt-intro-floating.heart {
+  top: 10%;
+  left: 6%;
+  width: 54px;
+  height: 54px;
+  animation-delay: 0s;
+}
+
+.chatgpt-intro-floating.pulse {
+  top: 60%;
+  right: 8%;
+  width: 38px;
+  height: 38px;
+  animation-delay: 1.2s;
+}
+
+.chatgpt-intro-floating.stethoscope {
+  bottom: 12%;
+  left: 12%;
+  width: 44px;
+  height: 44px;
+  animation-delay: 2.2s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-12px) scale(1.08); }
+  100% { transform: translateY(0) scale(1); }
 }
 
 @media (max-width: 900px) {

@@ -82,6 +82,22 @@ const Chat: React.FC = () => {
   return (
     <div className="chatgpt-chat-page">
       <div className="chatgpt-intro">
+        {/* Floating animated icons for extra visual appeal */}
+        <img
+          src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/heart-pulse.svg"
+          alt="Heart Pulse"
+          className="chatgpt-intro-floating heart"
+        />
+        <img
+          src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/activity.svg"
+          alt="Pulse"
+          className="chatgpt-intro-floating pulse"
+        />
+        <img
+          src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/stethoscope.svg"
+          alt="Stethoscope"
+          className="chatgpt-intro-floating stethoscope"
+        />
         <img
           src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/stethoscope.svg"
           alt="AI Doctor Logo"
