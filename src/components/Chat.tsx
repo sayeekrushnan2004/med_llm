@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, ArrowDown } from 'lucide-react';
 import ChatMessage from './ChatMessage';
 import { fetchMedicalBotResponse } from '../utils/api';
+import jsPDF from 'jspdf';
 import '../styles/Chat.css';
 
 interface Message {
@@ -88,6 +89,32 @@ const Chat: React.FC = () => {
     }
   };
 
+  const handleExportPDF = () => {
+    const doc = new jsPDF();
+    let y = 20;
+    doc.setFontSize(18);
+    doc.text('MediChat AI - Chat Session', 14, y);
+    y += 10;
+    doc.setFontSize(12);
+    chatHistory.forEach((msg, idx) => {
+      if (msg.user) {
+        doc.setTextColor(178, 58, 72);
+        doc.text(`You: ${msg.user}`, 14, y);
+        y += 8;
+      }
+      if (msg.bot) {
+        doc.setTextColor(34, 40, 49);
+        doc.text(`AI: ${msg.bot}`, 14, y);
+        y += 10;
+      }
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+    });
+    doc.save('medichat-session.pdf');
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault();
@@ -144,8 +171,11 @@ const Chat: React.FC = () => {
                 <Send size={20} />
               </button>
             </div>
-          </div>
-        </div>
+          </div> {/* end of model-card-preview-content */}
+        </div> {/* end of model-card-preview-inner */}
+      </div> {/* end of model-card-preview */}
+      <div className="chat-export-btn-row">
+        <button className="chat-export-btn" onClick={handleExportPDF}>Export Chat as PDF</button>
       </div>
     </div>
   );
