@@ -52,8 +52,6 @@ function AppContent() {
             >
               Scheme
             </Link>
-            <Link to="#" className="nav-link">About</Link>
-            <Link to="#" className="nav-link">Contact</Link>
           </nav>
         </div>
       </header>
