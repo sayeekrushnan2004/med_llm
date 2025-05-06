@@ -3,7 +3,7 @@
   <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" alt="Medical Cross Icon" width="110" />
 </p>
 
-<h1 align="center">MediChat AI</h1>
+<h1 align="center">MediJI </h1>
 <p align="center">
   <img src="https://img.shields.io/badge/AI-Powered-red?style=for-the-badge&logo=OpenAI&logoColor=white" />
   <img src="https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react&logoColor=white" />
