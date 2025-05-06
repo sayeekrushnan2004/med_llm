@@ -3,6 +3,7 @@ import { Stethoscope } from 'lucide-react';
 import ChatInterface from './components/ChatInterface';
 import Chat from './components/Chat';
 import SchemeInterface from './components/SchemeInterface';
+import NewsFeed from './components/NewsFeed';
 import './styles/App.css';
 
 function ChatPage() {
@@ -71,6 +72,13 @@ function AppContent() {
               onClick={handleNavClick}
             >
               Scheme
+            </Link>
+            <Link 
+              to="/news"
+              className={`nav-link${location.pathname === '/news' ? ' active' : ''}`}
+              onClick={handleNavClick}
+            >
+              News
             </Link>
           </nav>
         </div>
@@ -208,6 +216,7 @@ function AppContent() {
         } />
         <Route path="/chat" element={<ChatPage />} />
         <Route path="/scheme" element={<SchemePage />} />
+        <Route path="/news" element={<main className="main-content"><NewsFeed /></main>} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
