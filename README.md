@@ -96,7 +96,7 @@ $ npm run dev
 
 ## 🙏 Credits
 
-- <b>Design & Development:</b> Your Name
+- <b>Design & Development:</b> Alfred Christo W 
 - <b>Icons:</b> [Lucide Icons](https://lucide.dev/)
 - <b>AI Model:</b> [LM Studio](https://lmstudio.ai/)
 
