@@ -63,21 +63,7 @@
 
 ---
 
-## 📦 Getting Started
 
-```bash
-# Clone the repo
-$ git clone https://github.com/yourusername/medico.git
-$ cd medico
-
-# Install dependencies
-$ npm install
-
-# Start the app
-$ npm run dev
-```
-
----
 
 ## 🤖 AI Model
 
